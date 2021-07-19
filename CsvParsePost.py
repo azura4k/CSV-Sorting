@@ -5,6 +5,7 @@
 # www.github.com/Azura4k
 
 # Import csv json, and post library
+from requests.structures import CaseInsensitiveDict
 import csv
 import json
 # Put filename and location here.
@@ -65,16 +66,20 @@ def main():
     # Removes the "Test" placeholder
     Mp3FinalStats.remove("Test")
 
-# For testing and debugging
-#   for i in range(0, len(Mp3Stats)):
-#        print(Mp3Stats[i])
-#    print("Separate Data")
-#    for i in range(0, len(Mp3FinalStats)):
-#        print(Mp3FinalStats[i])
-
     # Output Final Stats to JSON Text
     json_text = json.dumps(Mp3FinalStats)
-    print(json_text)
+    import requests
+
+    url = " "
+
+    headers = CaseInsensitiveDict()
+    headers["Accept"] = "application/json"
+    headers["Authorization"] = " "
+    headers["Content-Type"] = "application/json"
+    resp = requests.post(url, headers=headers, data=json_text)
+
+    print(resp.status_code)
+
 
  # Calling Main
 main()
