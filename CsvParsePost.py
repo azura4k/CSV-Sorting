@@ -3,7 +3,7 @@
 #
 # Written by Azura4k
 # www.github.com/Azura4k
-
+# Version 2.0
 # Import csv json, and post library
 from requests.structures import CaseInsensitiveDict
 import csv
